@@ -156,6 +156,8 @@ npm run start --prefix frontend
 ```
 
 > Opens the dashboard at `http://localhost:3000` (or another port if 3000 is occupied)
+<img width="986" alt="image" src="https://github.com/user-attachments/assets/ae5c1606-ff40-4312-8399-953722373d47" />
+
 
 ---
 
