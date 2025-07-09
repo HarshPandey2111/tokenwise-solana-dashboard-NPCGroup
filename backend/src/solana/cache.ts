@@ -1,7 +1,7 @@
 import { getTopTokenHolders } from './tokenHolders';
 import pool from '../db';
 
-const TOKEN_MINT = '9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump';
+const TOKEN_MINT = 'YOUR TOKENMINT TO FETCH REAL DATA ';
 const CACHE_DURATION_MS = 5 * 60 * 1000; // 5 minutes
 
 let cachedWallets: any[] = [];
