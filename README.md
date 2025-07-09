@@ -1,4 +1,3 @@
-````markdown
 # 🧠 TokenWise — Real-Time Wallet Intelligence on Solana
 
 ## 🔍 Project Overview
@@ -70,9 +69,18 @@
 
 ---
 
-### 2. Configure Environment
+### 1. Clone & Navigate
 
-Create `.env` in `backend/`:
+```bash
+git clone https://github.com/<your-org>/tokenwise.git
+cd tokenwise
+```
+
+---
+
+### 2. Configure Environment Variables
+
+Create a `.env` file inside the `backend/` folder:
 
 ```env
 # Solana
@@ -90,24 +98,35 @@ PORT=4000
 TOKEN_MINT_ADDRESS=9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump
 ```
 
+---
+
 ### 3. Install Dependencies
 
 ```bash
 # Backend
 npm install --prefix backend
 
-# Frontend
-npm install --prefix frontend
+# Frontend (use --legacy-peer-deps if needed)
+npm install --prefix frontend --legacy-peer-deps
 ```
 
-### 4. Database Setup
+---
+
+### 4. Setup the Database
+
+Make sure PostgreSQL is running and create the database:
 
 ```bash
-# Ensure PostgreSQL is running
 createdb tokenwise
-# Run migrations (if using an ORM)
+```
+
+If using migrations:
+
+```bash
 npm run migrate --prefix backend
 ```
+
+---
 
 ### 5. Build & Start Backend
 
@@ -116,88 +135,65 @@ npm run build --prefix backend
 npm run start --prefix backend
 ```
 
-> The API will be available at `http://localhost:4000/api`
+> The backend will be available at: `http://localhost:4000`
 
-### 6. Seed Mock Data (Optional)
+---
+
+### 6. Seed Mock Data (Optional for Demo)
 
 ```bash
 npx ts-node backend/src/db/seedMockData.ts
 ```
 
-### 7. Start Frontend
+> Ensure `.env` is properly configured before running this script.
+
+---
+
+### 7. Start the Frontend
 
 ```bash
 npm run start --prefix frontend
 ```
 
-> The React dashboard should open at `http://localhost:3000` (or another port if 3000 is busy)
+> Opens the dashboard at `http://localhost:3000` (or another port if 3000 is occupied)
 
 ---
 
-## 🔧 API Endpoints
+## 📊 Dashboard Features
 
-| Method | Path                         | Description                                   |
-| ------ | ---------------------------- | --------------------------------------------- |
-| GET    | `/api/wallets/top`           | Returns top 60 token holders                  |
-| GET    | `/api/transactions/realtime` | Streams real-time transactions via SSE        |
-| GET    | `/api/transactions/history`  | Query historical data by `fromDate`, `toDate` |
-| GET    | `/api/transactions/export`   | Download CSV or JSON for a given range        |
-
----
-
-## 🌐 Frontend Overview
-
-* **Pages / Components**
-
-  * `Dashboard`: Main view with charts & tables
-  * `WalletTable`: Lists holders and summary stats
-  * `ProtocolChart`: Pie chart for protocol usage
-  * `BuySellChart`: Line or pie chart for buys vs sells
-* **State Management**
-
-  * React Context or Redux Toolkit (optional)
-* **Styling**
-
-  * Material UI with custom theming
+- ✅ **Real-Time Charts**
+  - Buy vs Sell activity
+  - Protocol usage breakdown
+- ✅ **Top Wallet Table**
+  - Wallet addresses with balances and activity
+- ✅ **Filters**
+  - Filter by time range (1h, 24h, custom)
+- ✅ **Exports**
+  - Download `.csv` or `.json` via export API
 
 ---
 
-## 🛠️ Troubleshooting
+## 🔌 API Endpoints
 
-* **Backend fails to start**
-
-  * Confirm `dist/index.js` exists after `npm run build`
-  * Check `.env` values and DB connectivity
-
-* **Frontend dependency errors**
-
-  * Delete `node_modules`, then `npm install --legacy-peer-deps --prefix frontend`
-
-* **Empty Dashboard / No Data**
-
-  * Verify backend API returns data (`curl http://localhost:4000/api/wallets/top`)
-  * Run seeder: `npx ts-node backend/src/db/seedMockData.ts`
-
-* **Port Conflicts**
-
-  * Change `PORT` in `.env` for backend
-  * On frontend start, press `Y` to switch ports
+| Method | Endpoint                      | Description                                 |
+|--------|-------------------------------|---------------------------------------------|
+| GET    | `/api/wallets/top`            | Top 60 token holders                        |
+| GET    | `/api/transactions/realtime`  | Stream real-time transactions (SSE)         |
+| GET    | `/api/transactions/history`   | Query historical data by date range         |
+| GET    | `/api/transactions/export`    | Export data as CSV/JSON                     |
 
 ---
 
-## 📝 Testing
+## 🧪 Testing
 
 ```bash
-# Backend tests
+# Run backend tests
 npm run test --prefix backend
-
-# Frontend tests (if any)
-npm run test --prefix frontend
 ```
 
 ---
 
-## 🏗️ Project Structure
+## 🗂 Project Structure
 
 ```
 tokenwise/
@@ -221,24 +217,56 @@ tokenwise/
 
 ---
 
-## 📦 Deployment (Optional)
+## 🛠 Troubleshooting
 
-* **Containerize** with Docker
-* Deploy to **Heroku**, **AWS**, or **DigitalOcean**
-* Use **PM2** or **Docker Compose** for process management
+| Issue                            | Solution                                                        |
+|----------------------------------|-----------------------------------------------------------------|
+| Backend not starting             | Run `npm run build --prefix backend` & check `.env`             |
+| No data in dashboard             | Run `seedMockData.ts` to populate dummy entries                 |
+| Frontend dependency conflicts    | Use `--legacy-peer-deps` with `npm install`                     |
+| API proxy or CORS errors         | Ensure backend is running on `http://localhost:4000`            |
+| PostgreSQL errors                | Verify credentials and DB existence                             |
+
+---
+
+## 📦 Deployment
+
+You can deploy using:
+
+- Docker (Dockerfile + Compose)
+- Render / Railway / Vercel (Frontend)
+- Heroku (Backend)
+- PM2 for backend process management
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/xyz`)
-3. Commit your changes (`git commit -m "Add xyz"`)
-4. Push to your branch (`git push origin feature/xyz`)
-5. Open a Pull Request
+We welcome contributions!
+
+```bash
+git checkout -b feature/your-feature
+# make your changes
+git commit -m "Add feature"
+git push origin feature/your-feature
+```
+
+Open a Pull Request 🚀
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+MIT License — free to use, modify, and distribute.
+
+---
+
+## 🔗 Resources
+
+- [Solana Docs](https://docs.solana.com/)
+- [Jupiter Aggregator](https://jup.ag/)
+- [Solana Web3.js](https://github.com/solana-labs/solana-web3.js)
+
+---
+
+**✨ Built for showcasing blockchain intelligence. Let your dashboard do the talking.**
