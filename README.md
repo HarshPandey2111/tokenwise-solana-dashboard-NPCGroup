@@ -1,7 +1,7 @@
 ````markdown
-# 🧠 TokenWise — Real-Time Wallet Intelligence on Solana
+##  🧠 TokenWise — Real-Time Wallet Intelligence on Solana
 
-## 🔍 Project Overview
+##  🔍 Project Overview
 
 **TokenWise** is a real-time intelligence tool designed to monitor and analyze wallet behavior for a specific token on the **Solana** blockchain. It:
 
