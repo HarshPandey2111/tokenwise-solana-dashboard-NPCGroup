@@ -1,7 +1,7 @@
 ````markdown
-##  🧠 TokenWise — Real-Time Wallet Intelligence on Solana
+# 🧠 TokenWise — Real-Time Wallet Intelligence on Solana
 
-##  🔍 Project Overview
+## 🔍 Project Overview
 
 **TokenWise** is a real-time intelligence tool designed to monitor and analyze wallet behavior for a specific token on the **Solana** blockchain. It:
 
@@ -20,8 +20,8 @@
    - Fetch the 60 largest token accounts using `getTokenLargestAccounts`  
    - Persist `wallet_address`, `token_quantity`, `balance`
 
-2. **Real‐Time Transaction Monitoring**  
-   - Subscribe to on‐chain events (WebSocket / RPC logs)  
+2. **Real-Time Transaction Monitoring**  
+   - Subscribe to on-chain events (WebSocket / RPC logs)  
    - Capture and store:  
      - `timestamp`  
      - `amount`  
@@ -35,7 +35,7 @@
 
 4. **Insights Dashboard**  
    - **Buys vs Sells**: Pie chart & summary  
-   - **Net Direction**: “Buy‐heavy” or “Sell‐heavy” indicator  
+   - **Net Direction**: “Buy-heavy” or “Sell-heavy” indicator  
    - **Active Wallets**: Ranked by number of transactions  
    - **Protocol Usage**: Pie chart breakdown  
    - **Time Filter**: Select last hour / 24h / custom range  
@@ -49,13 +49,13 @@
 
 ## 🧱 Tech Stack
 
-| Component     | Technology                                 |
-| ------------- | ------------------------------------------ |
-| **Backend**   | Node.js, Express, TypeScript               |
-| **Blockchain**| `@solana/web3.js`                          |
-| **Database**  | PostgreSQL (with `TypeORM` / `Prisma` ORM) |
-| **Frontend**  | React.js, Material UI, Chart.js            |
-| **Testing**   | Jest, Supertest (API)                      |
+| Component      | Technology                                 |
+|----------------|---------------------------------------------|
+| Backend        | Node.js, Express, TypeScript                |
+| Blockchain     | `@solana/web3.js`                           |
+| Database       | PostgreSQL (with `TypeORM` / `Prisma` ORM)  |
+| Frontend       | React.js, Material UI, Chart.js             |
+| Testing        | Jest, Supertest (API)                       |
 
 ---
 
@@ -66,14 +66,9 @@
 - **Node.js** ≥ v16  
 - **npm** ≥ v8 or **Yarn**  
 - **PostgreSQL** ≥ v12  
-- A working Solana RPC endpoint (public or self-hosted)  
+- A working Solana RPC endpoint (public or self-hosted)
 
-### 1. Clone & Navigate
-
-```bash
-git clone https://github.com/<your-org>/tokenwise.git
-cd tokenwise
-````
+---
 
 ### 2. Configure Environment
 
